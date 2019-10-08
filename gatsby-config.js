@@ -1,17 +1,16 @@
 module.exports = {
   siteMetadata: {
     title: `ASU Coalition of International Students`,
-    description: `CIS is a student led organization that acts as a bridge to reflect the needs of international students to university administration. We aim to enhance international student experience, promote cultural diversity and inclusivity in ASU through events and service.`,
+    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
     author: `@dickwyn`,
   },
   plugins: [
-    `gatsby-plugin-netlify-cms`,
     `gatsby-plugin-eslint`,
-    `gatsby-plugin-react-helmet`,
+    `gatsby-plugin-netlify-cms`,
     {
-      resolve: `gatsby-plugin-sass`,
+      resolve: `gatsby-plugin-google-analytics`,
       options: {
-        includePaths: ["src/scss/App.scss"],
+        trackingId: `${process.env.GA_TRACKING_ID}`,
       },
     },
     {
@@ -22,11 +21,12 @@ module.exports = {
         ignore: [`**/\.*`], // ignore files starting with a dot
       },
     },
+    `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `images`,
-        path: `${__dirname}/images`,
+        path: `${__dirname}/src/images`,
       },
     },
     `gatsby-transformer-remark`,
@@ -35,20 +35,23 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `ASU Coalition of International Students`,
-        short_name: `ASUCIS`,
+        name: `gatsby-starter-default`,
+        short_name: `starter`,
         start_url: `/`,
-        background_color: `#FFF`,
-        theme_color: `#000`,
-        display: `standalone`,
-        icon: `images/asucis-icon.png`,
+        background_color: `#663399`,
+        theme_color: `#663399`,
+        display: `minimal-ui`,
+        icon: `src/images/asucis-icon.png`, // This path is relative to the root of the site.
       },
     },
     {
-      resolve: `gatsby-plugin-google-analytics`,
+      resolve: `gatsby-plugin-sass`,
       options: {
-        trackingId: `${process.env.GA_TRACKING_ID}`,
+        includePaths: ["src/scss/App.scss"],
       },
     },
+    // this (optional) plugin enables Progressive Web App + Offline functionality
+    // To learn more, visit: https://gatsby.dev/offline
+    // `gatsby-plugin-offline`,
   ],
 };

@@ -1,7 +1,7 @@
 backend:
   name: git-gateway
-media_folder: images
-public_folder: images
+media_folder: static/assets
+public_folder: assets
 collections:
   - name: site-information
     label: "Site Information"
